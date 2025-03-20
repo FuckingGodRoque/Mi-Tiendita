@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Tiendita</title>
+    <link rel="stylesheet" href="estilo.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <div class="logo">
+                <a href="#top"><img src="recursos/Logo.png" alt="Logo de Mi Tiendita" class="logo-img"></a>
+                <a href="#top"><img src="recursos/MiTiendita.png" alt="Texto Mi Tiendita" class="logo-text"></a>
+            </div>
+            <div class="search-bar">
+                <input type="text" placeholder="Buscar productos..." id="search-input">
+                <button class="btn btn-outline" id="search-button">Buscar</button>
+            </div>
+            <div class="auth-buttons">
+                <button class="btn btn-outline" id="login-button">Iniciar Sesión</button>
+                <button class="btn btn-primary" id="signup-button">Crear Cuenta</button>
+            </div>
+        </div>
+    </header>
+
+    <main id="top">
+        <section id="productos">
+            <h2>Nuestros Productos</h2>
+            <div id="product-list" class="product-list"></div>
+        </section>
+
+        <section id="contacto">
+            <h2>Contacto</h2>
+            <p>Si tienes preguntas, no dudes en <a href="mailto:contacto@tiendita.com">contactarnos</a>.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Mi Tiendita. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- Login Modal -->
+    <div id="login-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="close-login">&times;</span>
+            <div class="modal-header">
+                <img src="recursos/Logo.png" alt="Logo de Mi Tiendita" class="modal-logo">
+                <img src="recursos/MiTiendita.png" alt="Texto Mi Tiendita" class="modal-logo-text">
+            </div>
+            <h2>Iniciar Sesión</h2>
+            <form id="login-form">
+                <label for="login-email">Correo Electrónico:</label>
+                <input type="email" id="login-email" required>
+                <label for="login-password">Contraseña:</label>
+                <input type="password" id="login-password" required>
+                <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Signup Modal -->
+    <div id="signup-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="close-signup">&times;</span>
+            <div class="modal-header">
+                <img src="recursos/Logo.png" alt="Logo de Mi Tiendita" class="modal-logo">
+                <img src="recursos/MiTiendita.png" alt="Texto Mi Tiendita" class="modal-logo-text">
+            </div>
+            <h2>Crear Cuenta</h2>
+            <form id="signup-form">
+                <label for="signup-name">Nombre Completo:</label>
+                <input type="text" id="signup-name" required>
+                <label for="signup-email">Correo Electrónico:</label>
+                <input type="email" id="signup-email" required>
+                <label for="signup-password">Contraseña:</label>
+                <input type="password" id="signup-password" required>
+                <button type="submit" class="btn btn-primary">Crear Cuenta</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="Productos.js"></script>
+</body>
+</html>
