@@ -179,6 +179,7 @@ document.addEventListener('DOMContentLoaded', () => {
             star.src = i < product.rating ? 'recursos/EstrellaNegra.png' : 'recursos/EstrellaBlanca.png';
             ratingElement.appendChild(star);
         }
+
         const ratingText = document.createElement('span');
         ratingText.textContent = ` (${product.rating})`;
         ratingElement.appendChild(ratingText);
@@ -187,9 +188,13 @@ document.addEventListener('DOMContentLoaded', () => {
         reviewsElement.textContent = `${product.reviews} opiniones.`;
         reviewsElement.style.color = '#999';
 
-        const button = document.createElement('button');
-        button.textContent = 'Comprar ahora';
-        button.className = 'btn btn-primary';
+        const buttonComprar = document.createElement('button');
+        buttonComprar.textContent = 'Comprar ahora';
+        buttonComprar.className = 'btn btn-primary';
+
+        const buttonAddCarrito = document.createElement('button');
+        buttonAddCarrito.className = 'btn-add-carrito';
+        buttonAddCarrito.innerHTML = `<img src="recursos/AddCarrito.png" alt="Añadir al carrito" class="icono-add-carrito">`;
 
         productDiv.appendChild(img);
         productDiv.appendChild(brandElement);
@@ -197,7 +202,8 @@ document.addEventListener('DOMContentLoaded', () => {
         productDiv.appendChild(priceElement);
         productDiv.appendChild(ratingElement);
         productDiv.appendChild(reviewsElement);
-        productDiv.appendChild(button);
+        productDiv.appendChild(buttonComprar);
+        productDiv.appendChild(buttonAddCarrito);
 
         productContainer.appendChild(productDiv);
     });
@@ -246,9 +252,13 @@ document.addEventListener('DOMContentLoaded', () => {
             reviewsElement.textContent = `${product.reviews} opiniones.`;
             reviewsElement.style.color = '#999';
 
-            const button = document.createElement('button');
-            button.textContent = 'Comprar ahora';
-            button.className = 'btn btn-primary';
+            const buttonComprar = document.createElement('button');
+            buttonComprar.textContent = 'Comprar ahora';
+            buttonComprar.className = 'btn btn-primary';
+
+            const buttonAddCarrito = document.createElement('button');
+            buttonAddCarrito.className = 'btn-add-carrito';
+            buttonAddCarrito.innerHTML = `<img src="recursos/AddCarrito.png" alt="Añadir al carrito" class="icono-add-carrito">`;
 
             productDiv.appendChild(img);
             productDiv.appendChild(brandElement);
@@ -256,7 +266,8 @@ document.addEventListener('DOMContentLoaded', () => {
             productDiv.appendChild(priceElement);
             productDiv.appendChild(ratingElement);
             productDiv.appendChild(reviewsElement);
-            productDiv.appendChild(button);
+            productDiv.appendChild(buttonComprar);
+            productDiv.appendChild(buttonAddCarrito);
 
             productContainer.appendChild(productDiv);
         });
