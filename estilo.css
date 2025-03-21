@@ -16,7 +16,7 @@ h2 {
     font-weight: bold;
     color: #444;
     text-align: center;
-    margin-bottom: 1rem;
+    margin-bottom: 0rem;
 }
 
 header {
@@ -64,6 +64,18 @@ header {
 .logo-text {
     height: 30px;
     cursor: pointer;
+}
+
+/* Efecto hover para el logo y texto en el navbar */
+.logo-img,
+.logo-text {
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.logo-img:hover,
+.logo-text:hover {
+    transform: scale(1.1); /* Efecto de zoom */
 }
 
 /* Buscador */
@@ -224,6 +236,39 @@ main {
     font-size: 0.9rem;
 }
 
+/* Estilo para el nombre de la marca */
+#producto h4 {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 0.5rem;
+}
+
+/* Estilo para la calificación con estrellas */
+.rating {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    margin: 0.5rem 0;
+    justify-content: center;
+}
+
+.rating img {
+    width: 20px;
+    height: 20px;
+}
+
+.rating span {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* Estilo para las opiniones */
+#producto p {
+    font-size: 0.9rem;
+    color: #666;
+    margin: 0.5rem 0;
+}
+
 #producto button {
     background-color: #333;
     color: white;
@@ -331,6 +376,7 @@ main {
     flex-wrap: wrap;
     justify-content: center;
     gap: 1rem;
+    margin-top: 0;
 }
 
 .product {
@@ -415,10 +461,12 @@ main {
 
 /* Solo afecta las imágenes dentro de #Despedida */
 #Despedida .contenedor-logos {
+    margin-top: 20px; /* Espaciado superior */
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 1rem; /* Espaciado entre imágenes */
+    gap: 1rem;
+    margin-bottom: 50px; /* Espaciado entre imágenes */
 }
 
 #Despedida .contenedor-logos img {
@@ -672,4 +720,30 @@ form input {
 
 .modal-content form button:hover {
     background-color: #555;
+}
+
+/* Modal Header */
+.modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+/* Logo */
+.modal-logo {
+    height: 50px;
+    transition: transform 0.3s ease;
+}
+
+/* Texto Mi Tiendita */
+.modal-logo-text {
+    height: 40px;
+    transition: transform 0.3s ease;
+}
+
+/* Efecto de zoom al pasar el mouse */
+.modal-logo:hover,
+.modal-logo-text:hover {
+    transform: scale(1.1);
 }
