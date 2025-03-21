@@ -3,13 +3,16 @@ const productos = {
     "Aceite 123": { precio: 50.99, stock: 10 },
     "Bimbollos": { precio: 25.99, stock: 10 },
     "Choco Krispis": { precio: 35.99, stock: 10 },
-    "Gajos de papas": { precio: 20.99, stock: 10 },
-    "Herllmanns": { precio: 30.99, stock: 10 },
-    "McCormick": { precio: 34.99, stock: 10 },
-    "PapasFrancesa": { precio: 69.99, stock: 10 },
-    "Pechuga de pavo": { precio: 29.99, stock: 10 },
-    "Salchicha de pavo": { precio: 34.99, stock: 10 },
-    "Zucaritas": { precio: 39.99, stock: 10 }
+    "GajosPapas": { precio: 29.99, stock: 10 },
+    "Hellmanns": { precio: 45.99, stock: 10 },
+    "McCormick": { precio: 39.99, stock: 10 },
+    "PapasFrancesa": { precio: 19.99, stock: 10 },
+    "PechugaPavo": { precio: 65.99, stock: 10 },
+    "SalchichaPavo": { precio: 55.99, stock: 10 },
+    "Zucaritas": { precio: 45.99, stock: 10 },
+    "Torres": { precio: 299.99, stock: 10 },
+    "Sabritas": { precio: 59.99, stock: 10 },
+
 };
 
 let carrito = {};
