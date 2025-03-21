@@ -236,6 +236,39 @@ main {
     font-size: 0.9rem;
 }
 
+/* Estilo para el nombre de la marca */
+#producto h4 {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 0.5rem;
+}
+
+/* Estilo para la calificación con estrellas */
+.rating {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    margin: 0.5rem 0;
+    justify-content: center;
+}
+
+.rating img {
+    width: 20px;
+    height: 20px;
+}
+
+.rating span {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* Estilo para las opiniones */
+#producto p {
+    font-size: 0.9rem;
+    color: #666;
+    margin: 0.5rem 0;
+}
+
 #producto button {
     background-color: #333;
     color: white;
@@ -428,10 +461,12 @@ main {
 
 /* Solo afecta las imágenes dentro de #Despedida */
 #Despedida .contenedor-logos {
+    margin-top: 20px; /* Espaciado superior */
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 1rem; /* Espaciado entre imágenes */
+    gap: 1rem;
+    margin-bottom: 50px; /* Espaciado entre imágenes */
 }
 
 #Despedida .contenedor-logos img {
