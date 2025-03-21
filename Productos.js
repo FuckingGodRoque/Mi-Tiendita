@@ -1,312 +1,149 @@
-class Product {
-    constructor(name, price, image) {
-        this.name = name;
-        this.price = price;
-        this.image = image;
-    }
+// Productos disponibles
+const productos = {
+    "Aceite 123": { precio: 50.99, stock: 10 },
+    "Bimbollos": { precio: 25.99, stock: 10 },
+    "Choco Krispis": { precio: 35.99, stock: 10 },
+    "Gajos de papas": { precio: 20.99, stock: 10 },
+    "Herllmanns": { precio: 30.99, stock: 10 },
+    "McCormick": { precio: 34.99, stock: 10 },
+    "PapasFrancesa": { precio: 69.99, stock: 10 },
+    "Pechuga de pavo": { precio: 29.99, stock: 10 },
+    "Salchicha de pavo": { precio: 34.99, stock: 10 },
+    "Zucaritas": { precio: 39.99, stock: 10 }
+};
 
-    render() {
-        const productDiv = document.createElement('div');
-        productDiv.className = 'product';
+let carrito = {};
 
-        const img = document.createElement('img');
-        img.src = `recursos/${this.image}`;
-        img.alt = this.name;
-
-        const nameElement = document.createElement('h3');
-        nameElement.textContent = this.name;
-
-        const priceElement = document.createElement('p');
-        priceElement.textContent = `$${this.price.toFixed(2)}`;
-
-        const button = document.createElement('button');
-        button.textContent = 'Añadir al carrito';
-        button.className = 'btn btn-primary';
-        button.onclick = () => this.addToCart();
-
-        productDiv.appendChild(img);
-        productDiv.appendChild(nameElement);
-        productDiv.appendChild(priceElement);
-        productDiv.appendChild(button);
-
-        return productDiv;
-    }
-
-    addToCart() {
-        console.log(`${this.name} ha sido añadido al carrito.`);
-    }
-}
-
-class ShoppingCart {
-    constructor() {
-        this.items = [];
-    }
-
-    addItem(product) {
-        this.items.push(product);
-        console.log(`${product.name} added to cart. Total items: ${this.items.length}`);
-    }
-
-    getTotal() {
-        return this.items.reduce((total, item) => total + item.price, 0);
-    }
-
-    renderCart() {
-        console.log('Cart items:', this.items);
-    }
-}
-
-class Producto {
-    constructor(nombre, descripcion, precio) {
-        this.nombre = nombre;
-        this.descripcion = descripcion;
-        this.precio = precio;
-    }
-}
-
-const carrito = [];
-
-document.querySelectorAll('.btn').forEach((button, index) => {
-    button.addEventListener('click', () => {
-        const producto = new Producto(
-            `Producto ${index + 1}`,
-            `Descripción del producto ${index + 1}`,
-            (index + 1) * 10
-        );
-        carrito.push(producto);
-        alert(`${producto.nombre} añadido al carrito.`);
-    });
+// Mostrar/ocultar carrito al hacer clic en el ícono
+document.querySelector('.contenedor-carrito').addEventListener('click', () => {
+    const carritoDiv = document.getElementById('divCarro');
+    carritoDiv.style.display = 'flex'; // Mostrar el modal
 });
 
-document.addEventListener('DOMContentLoaded', () => {
-    const products = [
-        {
-            brand: '1-2-3',
-            name: 'Aceite 123',
-            price: 50.99,
-            image: 'Aceite123.png',
-            rating: 4.0,
-            reviews: 5
-        },
-        {
-            brand: 'Bimbo',
-            name: 'Bimbollos',
-            price: 25.99,
-            image: 'Bimbollos.png',
-            rating: 4.5,
-            reviews: 10
-        },
-        {
-            brand: 'Kelloggs',
-            name: 'Choco Krispis',
-            price: 35.99,
-            image: 'ChocoKrispis.png',
-            rating: 4.2,
-            reviews: 8
-        },
-        {
-            brand: 'MacCain',
-            name: 'Gajos de Papas',
-            price: 15.99,
-            image: 'Gajos de papas.png',
-            rating: 4.0,
-            reviews: 12
-        },
-        {
-            brand: 'McCormick',
-            name: 'Mayonesa McCormick',
-            price: 45.99,
-            image: 'McCormick.png',
-            rating: 4.3,
-            reviews: 7
-        },
-        {
-            brand: 'MacCain',
-            name: 'Papas a la Francesa',
-            price: 20.99,
-            image: 'PapasFrancesa.png',
-            rating: 4.1,
-            reviews: 9
-        },
-        {
-            brand: 'LALA',
-            name: 'Pechuga de Pavo',
-            price: 55.99,
-            image: 'PechugaPavo.png',
-            rating: 4.4,
-            reviews: 6
-        },
-        {
-            brand: 'LALA',
-            name: 'Salchicha DE PAVO',
-            price: 30.99,
-            image: 'SalchichaPavo.png',
-            rating: 4.0,
-            reviews: 11
-        },
-        {
-            brand: 'Kelloggs',
-            name: 'Zucaritas',
-            price: 40.99,
-            image: 'Zucaritas.png',
-            rating: 4.5,
-            reviews: 15
-        }
-    ];
-
-    const productContainer = document.getElementById('product-list');
-    products.forEach(product => {
-        const productDiv = document.createElement('div');
-        productDiv.className = 'product';
-
-        const img = document.createElement('img');
-        img.src = `recursos/${product.image}`;
-        img.alt = product.name;
-
-        const brandElement = document.createElement('h3');
-        brandElement.textContent = product.brand;
-
-        const nameElement = document.createElement('p');
-        nameElement.textContent = product.name;
-
-        const priceElement = document.createElement('p');
-        priceElement.textContent = `$${product.price.toFixed(2)}`;
-
-        const ratingElement = document.createElement('div');
-        ratingElement.className = 'rating';
-        for (let i = 0; i < 5; i++) {
-            const star = document.createElement('img');
-            star.src = i < product.rating ? 'recursos/EstrellaNegra.png' : 'recursos/EstrellaBlanca.png';
-            ratingElement.appendChild(star);
-        }
-
-        const ratingText = document.createElement('span');
-        ratingText.textContent = ` (${product.rating})`;
-        ratingElement.appendChild(ratingText);
-
-        const reviewsElement = document.createElement('p');
-        reviewsElement.textContent = `${product.reviews} opiniones.`;
-        reviewsElement.style.color = '#999';
-
-        const buttonComprar = document.createElement('button');
-        buttonComprar.textContent = 'Comprar ahora';
-        buttonComprar.className = 'btn btn-primary';
-
-        const buttonAddCarrito = document.createElement('button');
-        buttonAddCarrito.className = 'btn-add-carrito';
-        buttonAddCarrito.innerHTML = `<img src="recursos/AddCarrito.png" alt="Añadir al carrito" class="icono-add-carrito">`;
-
-        productDiv.appendChild(img);
-        productDiv.appendChild(brandElement);
-        productDiv.appendChild(nameElement);
-        productDiv.appendChild(priceElement);
-        productDiv.appendChild(ratingElement);
-        productDiv.appendChild(reviewsElement);
-        productDiv.appendChild(buttonComprar);
-        productDiv.appendChild(buttonAddCarrito);
-
-        productContainer.appendChild(productDiv);
-    });
-
-    // Search functionality
-    const searchInput = document.getElementById('search-input');
-    const searchButton = document.getElementById('search-button');
-
-    searchButton.addEventListener('click', () => {
-        const query = searchInput.value.toLowerCase();
-        const filteredProducts = products.filter(product => 
-            product.name.toLowerCase().includes(query) || 
-            product.brand.toLowerCase().includes(query)
-        );
-
-        productContainer.innerHTML = '';
-        filteredProducts.forEach(product => {
-            const productDiv = document.createElement('div');
-            productDiv.className = 'product';
-
-            const img = document.createElement('img');
-            img.src = `recursos/${product.image}`;
-            img.alt = product.name;
-
-            const brandElement = document.createElement('h3');
-            brandElement.textContent = product.brand;
-
-            const nameElement = document.createElement('p');
-            nameElement.textContent = product.name;
-
-            const priceElement = document.createElement('p');
-            priceElement.textContent = `$${product.price.toFixed(2)}`;
-
-            const ratingElement = document.createElement('div');
-            ratingElement.className = 'rating';
-            for (let i = 0; i < 5; i++) {
-                const star = document.createElement('img');
-                star.src = i < product.rating ? 'recursos/EstrellaNegra.png' : 'recursos/EstrellaBlanca.png';
-                ratingElement.appendChild(star);
-            }
-            const ratingText = document.createElement('span');
-            ratingText.textContent = ` (${product.rating})`;
-            ratingElement.appendChild(ratingText);
-
-            const reviewsElement = document.createElement('p');
-            reviewsElement.textContent = `${product.reviews} opiniones.`;
-            reviewsElement.style.color = '#999';
-
-            const buttonComprar = document.createElement('button');
-            buttonComprar.textContent = 'Comprar ahora';
-            buttonComprar.className = 'btn btn-primary';
-
-            const buttonAddCarrito = document.createElement('button');
-            buttonAddCarrito.className = 'btn-add-carrito';
-            buttonAddCarrito.innerHTML = `<img src="recursos/AddCarrito.png" alt="Añadir al carrito" class="icono-add-carrito">`;
-
-            productDiv.appendChild(img);
-            productDiv.appendChild(brandElement);
-            productDiv.appendChild(nameElement);
-            productDiv.appendChild(priceElement);
-            productDiv.appendChild(ratingElement);
-            productDiv.appendChild(reviewsElement);
-            productDiv.appendChild(buttonComprar);
-            productDiv.appendChild(buttonAddCarrito);
-
-            productContainer.appendChild(productDiv);
-        });
-    });
-
-    // Modal functionality
-    const loginModal = document.getElementById('login-modal');
-    const signupModal = document.getElementById('signup-modal');
-    const loginButton = document.getElementById('login-button');
-    const signupButton = document.getElementById('signup-button');
-    const closeLogin = document.getElementById('close-login');
-    const closeSignup = document.getElementById('close-signup');
-
-    loginButton.addEventListener('click', (event) => {
-        event.stopPropagation();
-        loginModal.style.display = 'block';
-    });
-
-    signupButton.addEventListener('click', (event) => {
-        event.stopPropagation();
-        signupModal.style.display = 'block';
-    });
-
-    closeLogin.addEventListener('click', () => {
-        loginModal.style.display = 'none';
-    });
-
-    closeSignup.addEventListener('click', () => {
-        signupModal.style.display = 'none';
-    });
-
-    window.addEventListener('click', (event) => {
-        if (event.target == loginModal) {
-            loginModal.style.display = 'none';
-        }
-        if (event.target == signupModal) {
-            signupModal.style.display = 'none';
-        }
-    });
-
-    // Hover effect for logo and text together
+// Cerrar el carrito al hacer clic en el botón de cerrar
+document.getElementById('cerrar-carrito').addEventListener('click', () => {
+    const carritoDiv = document.getElementById('divCarro');
+    carritoDiv.style.display = 'none'; // Ocultar el modal
 });
+
+// Cerrar el carrito al hacer clic fuera del contenido del modal
+window.addEventListener('click', (event) => {
+    const carritoDiv = document.getElementById('divCarro');
+    if (event.target === carritoDiv) {
+        carritoDiv.style.display = 'none'; // Ocultar el modal
+    }
+});
+
+// Mostrar/ocultar modales de login y registro
+document.querySelector('.btn-outline').addEventListener('click', () => {
+    document.getElementById('loginModal').style.display = 'flex';
+});
+
+document.querySelector('.btn-primary').addEventListener('click', () => {
+    document.getElementById('registerModal').style.display = 'flex';
+});
+
+document.getElementById('cerrar-login').addEventListener('click', () => {
+    document.getElementById('loginModal').style.display = 'none';
+});
+
+document.getElementById('cerrar-registro').addEventListener('click', () => {
+    document.getElementById('registerModal').style.display = 'none';
+});
+
+// Función para agregar productos al carrito
+function agregarAlCarrito(nombre) {
+    if (productos[nombre].stock > 0) {
+        if (!carrito[nombre]) carrito[nombre] = { cantidad: 0, precio: productos[nombre].precio };
+        carrito[nombre].cantidad++;
+        productos[nombre].stock--;
+
+    
+        const stockElemento = document.getElementById(`${nombre.toLowerCase().replace(/\s/g, '-')}-stock`);
+        if (stockElemento) {
+            stockElemento.textContent = productos[nombre].stock;
+        } else {
+            console.error(`No se encontró el elemento de stock para ${nombre}`);
+        }
+
+        actualizarUI();
+    } else {
+        alert('Producto sin stock disponible.');
+    }
+}
+
+// Función para actualizar la interfaz del carrito
+function actualizarUI() {
+    const listaCarrito = document.getElementById('lista-carrito');
+    const totalElement = document.getElementById('total');
+    const totalCarrito = document.getElementById('total-carrito');
+    let total = 0;
+    listaCarrito.innerHTML = '';
+
+    for (let nombre in carrito) {
+        const item = carrito[nombre];
+        total += item.cantidad * item.precio;
+        listaCarrito.innerHTML += `
+            <li>
+                <img src="recursos/${nombre.toLowerCase().replace(/\s+/g, '')}.png" alt="${nombre}" style="width: 50px; height: 50px; margin-right: 10px;">
+                ${nombre} x${item.cantidad} - $${(item.cantidad * item.precio).toFixed(2)}
+                <button onclick="eliminarDelCarrito('${nombre}')">Eliminar</button>
+            </li>
+        `;
+    }
+
+    totalElement.textContent = `$${total.toFixed(2)} MXN`;
+    totalCarrito.textContent = `$${total.toFixed(2)}`; // Actualiza el total en la cápsula
+    actualizarStock();
+    document.getElementById('comprarCarrito').disabled = total === 0;
+}
+
+// Función para eliminar productos del carrito
+function eliminarDelCarrito(nombre) {
+    if (carrito[nombre]) {
+        carrito[nombre].cantidad--;
+        productos[nombre].stock++;
+        if (carrito[nombre].cantidad === 0) delete carrito[nombre];
+        actualizarUI();
+    }
+}
+
+// Función para actualizar el stock en la interfaz
+function actualizarStock() {
+    for (let nombre in productos) {
+        const id = nombre.toLowerCase().replace(/\s+/g, '-');
+        document.getElementById(`${id}-stock`).textContent = productos[nombre].stock;
+    }
+}
+
+// Vaciar carrito
+document.getElementById('vaciar-carrito').addEventListener('click', () => {
+    for (let nombre in carrito) productos[nombre].stock += carrito[nombre].cantidad;
+    carrito = {};
+    actualizarUI();
+});
+
+// Comprar productos
+document.getElementById('comprarCarrito').addEventListener('click', () => {
+    if (Object.keys(carrito).length > 0) {
+        alert('Compra exitosa');
+        carrito = {};
+        actualizarUI();
+    }
+});
+
+function realizarBusqueda() {
+    const query = document.getElementById('buscar-input').value.toLowerCase();
+    const productosDiv = document.querySelectorAll('#producto');
+
+    productosDiv.forEach(producto => {
+        const nombre = producto.getAttribute('data-nombre').toLowerCase();
+        if (nombre.includes(query)) {
+            producto.style.display = 'block';
+        } else {
+            producto.style.display = 'none';
+        }
+    });
+}
+
+actualizarUI();

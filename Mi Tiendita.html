@@ -10,17 +10,32 @@
 <body>
     <header>
         <div class="navbar">
+            <!-- Logo y texto -->
             <div class="logo">
-                <a href="#top"><img src="recursos/Logo.png" alt="Logo de Mi Tiendita" class="logo-img"></a>
-                <a href="#top"><img src="recursos/MiTiendita.png" alt="Texto Mi Tiendita" class="logo-text"></a>
+                <img src="recursos/logo.png" alt="Logo" class="logo-img">
+                <img src="recursos/MiTiendita.png" alt="Mi Tiendita" class="logo-text">
             </div>
+
+            <!-- Buscador -->
             <div class="search-bar">
-                <input type="text" placeholder="Buscar productos..." id="search-input">
-                <button class="btn btn-outline" id="search-button">Buscar</button>
+                <input type="text" placeholder="Buscar productos..." id="buscar-input">
+                <button class="btn-lupa" onclick="realizarBusqueda()">
+                    <img src="recursos/lupa.png" alt="Buscar" class="icono-lupa">
+                </button>
             </div>
+
+            <!-- Cápsula del carrito -->
+            <div class="contenedor-carrito">
+                <button class="btn-carrito">
+                    <img src="recursos/Carrito.png" alt="Carrito" class="icono-carrito">
+                    <span id="total-carrito">$0.00</span>
+                </button>
+            </div>
+
+            <!-- Botones de login -->
             <div class="auth-buttons">
-                <button class="btn btn-outline" id="login-button">Iniciar Sesión</button>
-                <button class="btn btn-primary" id="signup-button">Crear Cuenta</button>
+                <button class="btn btn-outline">Iniciar Sesión</button>
+                <button class="btn btn-primary">Registrarse</button>
             </div>
         </div>
     </header>
@@ -30,6 +45,92 @@
             <h2>Nuestros Productos</h2>
             <div id="product-list" class="product-list"></div>
         </section>
+
+        <!-- Contenedor de productos -->
+        <div id="producto-lista">
+            <div id="producto" data-nombre="Aceite 123">
+                <img src="recursos/Aceite123.png" alt="Aceite 123" style="width: 100px; height: 100px;">
+                <h3>Aceite 123</h3>
+                <p>Precio: $50.99</p>
+                <p>Stock: <span id="aceite-123-stock">10</span></p>
+                <button onclick="agregarAlCarrito('Aceite 123')">Añadir al carrito</button>
+            </div>
+            <div id="producto" data-nombre="Bimbollos">
+                <img src="recursos/bimbollos.png" alt="Bimbollos" style="width: 100px; height: 100px;">
+                <h3>Bimbollos</h3>
+                <p>Precio: $25.99</p>
+                <p>Stock: <span id="bimbollos-stock">10</span></p>
+                <button onclick="agregarAlCarrito('Bimbollos')">Añadir al carrito</button>
+            </div>
+            <div id="producto" data-nombre="Choco Krispis">
+                <img src="recursos/chocoKrispis.png" alt="Choco Krispis" style="width: 100px; height: 100px;">
+                <h3>Choco Krispis</h3>
+                <p>Precio: $35.99</p>
+                <p>Stock: <span id="choco-krispis-stock">10</span></p>
+                <button onclick="agregarAlCarrito('Choco Krispis')">Añadir al carrito</button>
+            </div>
+            <div id="producto" data-nombre="Gajos de papas">
+                <img src="recursos/Gajos de papas.png" alt="Gajos de papas" style="width: 100px; height: 100px;">
+                <h3>Gajos de papas</h3>
+                <p>Precio: $29.99</p>
+                <p>Stock: <span id="gajos-de-papas-stock">10</span></p>
+                <button onclick="agregarAlCarrito('Gajos de papas')">Añadir al carrito</button>
+            </div>
+            <div id="producto" data-nombre="Herllmanns">
+                <img src="recursos/Hellmanns.png" alt="Herllmanns" style="width: 100px; height: 100px;">
+                <h3>Herllmann's</h3>
+                <p>Precio: $45.99</p>
+                <p>Stock: <span id="herllmanns-stock">10</span></p>
+                <button onclick="agregarAlCarrito('Herllmanns')">Añadir al carrito</button>
+            </div>
+            <div id="producto" data-nombre="McCormick">
+                <img src="recursos/McCormick.png" alt="McCormick" style="width: 100px; height: 100px;">
+                <h3>McCormick</h3>
+                <p>Precio: $39.99</p>
+                <p>Stock: <span id="mccormick-stock">10</span></p>
+                <button onclick="agregarAlCarrito('McCormick')">Añadir al carrito</button>
+            </div>
+            <div id="producto" data-nombre="PapasFrancesa">
+                <img src="recursos/PapasFrancesa.png" alt="PapasFrancesa" style="width: 100px; height: 100px;">
+                <h3>Papas a la Francesa</h3>
+                <p>Precio: $19.99</p>
+                <p>Stock: <span id="papasfrancesa-stock">10</span></p>
+                <button onclick="agregarAlCarrito('PapasFrancesa')">Añadir al carrito</button>
+            </div>
+            <div id="producto" data-nombre="PechugaPavo">
+                <img src="recursos/PechugaPavo.png" alt="Pechuga de Pavo" style="width: 100px; height: 100px;">
+                <h3>Pechuga de Pavo</h3>
+                <p>Precio: $65.99</p>
+                <p>Stock: <span id="pechuga-de-pavo-stock">10</span></p>
+                <button onclick="agregarAlCarrito('Pechuga de pavo')">Añadir al carrito</button>
+            </div>
+            <div id="producto" data-nombre="SalchichaPavo">
+                <img src="recursos/SalchichaPavo.png" alt="Salchicha de pavo" style="width: 100px; height: 100px;">
+                <h3>Salchicha de Pavo</h3>
+                <p>Precio: $55.99</p>
+                <p>Stock: <span id="salchicha-de-pavo-stock">10</span></p>
+                <button onclick="agregarAlCarrito('Salchicha de pavo')">Añadir al carrito</button>
+            </div>
+            <div id="producto" data-nombre="Zucaritas">
+                <img src="recursos/Zucaritas.png" alt="Zucaritas" style="width: 100px; height: 100px;">
+                <h3>Zucaritas</h3>
+                <p>Precio: $45.99</p>
+                <p>Stock: <span id="zucaritas-stock">10</span></p>
+                <button onclick="agregarAlCarrito('Zucaritas')">Añadir al carrito</button>
+            </div>
+        </div>
+
+        <!-- Contenedor del carrito -->
+        <div id="divCarro" class="modal">
+            <div class="modal-content">
+                <span class="close" id="cerrar-carrito">&times;</span>
+                <h2>Carrito</h2>
+                <ul id="lista-carrito"></ul>
+                <p>Total: <span id="total">$0.00 MXN</span></p>
+                <button id="vaciar-carrito">Vaciar carrito</button>
+                <button id="comprarCarrito" disabled>Comprar</button>
+            </div>
+        </div>
 
         <section id="contacto">
             <h2>Contacto</h2>
@@ -81,7 +182,53 @@
         </div>
     </div>
 
-    
+    <!-- Carrito Modal -->
+    <div id="cart-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="close-cart">&times;</span>
+            <h2>Carrito de Compras</h2>
+            <div id="cart-items">
+
+            </div>
+            <div id="cart-summary">
+                <p>Subtotal: <span id="cart-subtotal">$0.00</span></p>
+                <p>IVA (16%): <span id="cart-iva">$0.00</span></p>
+                <p>Total: <span id="cart-total-final">$0.00</span></p>
+            </div>
+            <button class="btn btn-primary" id="checkout-button">Finalizar Compra</button>
+        </div>
+    </div>
+
+    <!-- Modal de Login -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="cerrar-login">&times;</span>
+            <h2>Iniciar Sesión</h2>
+            <form id="loginForm">
+                <label for="loginEmail">Correo Electrónico:</label>
+                <input type="email" id="loginEmail" required>
+                <label for="loginPassword">Contraseña:</label>
+                <input type="password" id="loginPassword" required>
+                <button type="submit">Iniciar Sesión</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal de Registro -->
+    <div id="registerModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="cerrar-registro">&times;</span>
+            <h2>Registrarse</h2>
+            <form id="registerForm">
+                <label for="registerEmail">Correo Electrónico:</label>
+                <input type="email" id="registerEmail" required>
+                <label for="registerPassword">Contraseña:</label>
+                <input type="password" id="registerPassword" required>
+                <button type="submit">Registrarse</button>
+            </form>
+        </div>
+    </div>
+
     <script src="Productos.js"></script>
 </body>
 </html>
