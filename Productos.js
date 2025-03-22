@@ -1,6 +1,6 @@
 // Productos disponibles
 const productos = {
-    "Aceite 123": { precio: 50.99, stock: 10 },
+    "Aceite123": { precio: 50.99, stock: 10 },
     "Bimbollos": { precio: 25.99, stock: 10 },
     "Choco Krispis": { precio: 35.99, stock: 10 },
     "GajosPapas": { precio: 29.99, stock: 10 },
