@@ -17,27 +17,24 @@ const productos = {
 
 let carrito = {};
 
-// Mostrar/ocultar carrito al hacer clic en el ícono
 document.querySelector('.contenedor-carrito').addEventListener('click', () => {
     const carritoDiv = document.getElementById('divCarro');
-    carritoDiv.style.display = 'flex'; // Mostrar el modal
+    carritoDiv.style.display = 'flex'; 
 });
 
-// Cerrar el carrito al hacer clic en el botón de cerrar
 document.getElementById('cerrar-carrito').addEventListener('click', () => {
     const carritoDiv = document.getElementById('divCarro');
-    carritoDiv.style.display = 'none'; // Ocultar el modal
+    carritoDiv.style.display = 'none';
 });
 
-// Cerrar el carrito al hacer clic fuera del contenido del modal
 window.addEventListener('click', (event) => {
     const carritoDiv = document.getElementById('divCarro');
     if (event.target === carritoDiv) {
-        carritoDiv.style.display = 'none'; // Ocultar el modal
+        carritoDiv.style.display = 'none'; 
     }
 });
 
-// Mostrar/ocultar modales de login y registro
+
 document.querySelector('.btn-outline').addEventListener('click', () => {
     document.getElementById('loginModal').style.display = 'flex';
 });
@@ -54,7 +51,6 @@ document.getElementById('cerrar-registro').addEventListener('click', () => {
     document.getElementById('registerModal').style.display = 'none';
 });
 
-// Función para agregar productos al carrito
 function agregarAlCarrito(nombre) {
     if (productos[nombre].stock > 0) {
         if (!carrito[nombre]) carrito[nombre] = { cantidad: 0, precio: productos[nombre].precio };
@@ -75,7 +71,6 @@ function agregarAlCarrito(nombre) {
     }
 }
 
-// Función para actualizar la interfaz del carrito
 function actualizarUI() {
     const listaCarrito = document.getElementById('lista-carrito');
     const totalElement = document.getElementById('total');
@@ -101,7 +96,6 @@ function actualizarUI() {
     document.getElementById('comprarCarrito').disabled = total === 0;
 }
 
-// Función para eliminar productos del carrito
 function eliminarDelCarrito(nombre) {
     if (carrito[nombre]) {
         carrito[nombre].cantidad--;
@@ -111,7 +105,7 @@ function eliminarDelCarrito(nombre) {
     }
 }
 
-// Función para actualizar el stock en la interfaz
+
 function actualizarStock() {
     for (let nombre in productos) {
         const id = nombre.toLowerCase().replace(/\s+/g, '-');
@@ -119,14 +113,12 @@ function actualizarStock() {
     }
 }
 
-// Vaciar carrito
 document.getElementById('vaciar-carrito').addEventListener('click', () => {
     for (let nombre in carrito) productos[nombre].stock += carrito[nombre].cantidad;
     carrito = {};
     actualizarUI();
 });
 
-// Comprar productos
 document.getElementById('comprarCarrito').addEventListener('click', () => {
     if (Object.keys(carrito).length > 0) {
         alert('Compra exitosa');
