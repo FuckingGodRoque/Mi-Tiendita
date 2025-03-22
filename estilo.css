@@ -1,7 +1,7 @@
-/* Importing fonts */
+
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;500&display=swap');
 
-/* General */
+
 body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
@@ -33,7 +33,7 @@ header {
     z-index: 1000;
 }
 
-/* Navbar */
+
 .navbar {
     display: flex;
     align-items: center;
@@ -49,7 +49,7 @@ header {
     z-index: 1000;
 }
 
-/* Logo */
+
 .logo {
     display: flex;
     align-items: center;
@@ -66,7 +66,7 @@ header {
     cursor: pointer;
 }
 
-/* Efecto hover para el logo y texto en el navbar */
+
 .logo-img,
 .logo-text {
     transition: transform 0.3s ease;
@@ -75,10 +75,10 @@ header {
 
 .logo-img:hover,
 .logo-text:hover {
-    transform: scale(1.1); /* Efecto de zoom */
+    transform: scale(1.1); 
 }
 
-/* Buscador */
+
 .search-bar {
     display: flex;
     align-items: center;
@@ -113,30 +113,6 @@ header {
     transform: scale(1.2);
 }
 
-/* Cápsula del carrito */
-.contenedor-carrito {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    background-color: #333;
-    color: white;
-    border-radius: 20px;
-    padding: 0.5rem 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-.contenedor-carrito:hover {
-    background-color: #555;
-    transform: scale(1.05);
-}
-
-.icono-carrito {
-    width: 24px;
-    height: 24px;
-    transition: transform 0.3s ease, content 0.3s ease;
-}
-
 .contenedor-carrito:hover .icono-carrito {
     transform: scale(1.2);
 }
@@ -147,7 +123,7 @@ header {
     color: white;
 }
 
-/* Botones de login */
+
 .auth-buttons {
     display: flex;
     gap: 0.5rem;
@@ -187,7 +163,7 @@ main {
     padding-top: 1rem;
 }
 
-/* Productos */
+
 #productos {
     padding: 2rem;
     display: flex;
@@ -236,14 +212,13 @@ main {
     font-size: 0.9rem;
 }
 
-/* Estilo para el nombre de la marca */
+
 #producto h4 {
     font-size: 1rem;
     color: #555;
     margin-bottom: 0.5rem;
 }
 
-/* Estilo para la calificación con estrellas */
 .rating {
     display: flex;
     align-items: center;
@@ -262,7 +237,6 @@ main {
     color: #666;
 }
 
-/* Estilo para las opiniones */
 #producto p {
     font-size: 0.9rem;
     color: #666;
@@ -284,9 +258,6 @@ main {
     background-color: #555;
     transform: scale(1.05);
 }
-
-/* Carrito */
-
 
 #divCarro h2 {
     font-size: 1.5rem;
@@ -397,8 +368,8 @@ main {
 
 .product img {
     width: 100%;
-    height: 200px; /* Ajusta según lo que necesites */
-    object-fit: cover; /* Recorta la imagen si es necesario */
+    height: 200px;
+    object-fit: cover; 
     border-radius: 8px;
     transition: transform 0.3s ease;
 }
@@ -446,9 +417,9 @@ main {
 }
 
 #Despedida {
-    text-align: center; /* Centra el contenido */
+    text-align: center; 
     padding: 2rem 0;
-    background-color: #f8f8f8; /* Fondo suave */
+    background-color: #f8f8f8; 
 }
 
 .mensaje-despedida {
@@ -459,18 +430,18 @@ main {
     color: #333;
 }
 
-/* Solo afecta las imágenes dentro de #Despedida */
+
 #Despedida .contenedor-logos {
-    margin-top: 20px; /* Espaciado superior */
+    margin-top: 20px; 
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 1rem;
-    margin-bottom: 50px; /* Espaciado entre imágenes */
+    margin-bottom: 50px;
 }
 
 #Despedida .contenedor-logos img {
-    width: 150px; /* Tamaño específico SOLO en esta sección */
+    width: 150px; 
     height: auto;
 }
 
@@ -485,9 +456,8 @@ footer {
     font-weight: 300;
 }
 
-/* Modal Styles */
 .modal {
-    display: none; /* Oculto inicialmente */
+    display: none; 
     position: fixed;
     z-index: 1001;
     left: 0;
@@ -563,7 +533,7 @@ form input {
     font-weight: 300;
 }
 
-/* Contenedor del carrito en el navbar */
+
 .contenedor-carrito {
     display: flex;
     align-items: center;
@@ -581,7 +551,6 @@ form input {
     transform: scale(1.05);
 }
 
-/* Botón del carrito */
 .btn-carrito {
     display: flex;
     align-items: center;
@@ -594,7 +563,7 @@ form input {
     font-family: 'Poppins', sans-serif;
 }
 
-/* Ícono del carrito */
+
 .icono-carrito {
     width: 24px;
     height: 24px;
@@ -605,37 +574,31 @@ form input {
     transform: scale(1.2);
 }
 
-/* Total del carrito */
-#total-carrito {
-    font-size: 1rem;
-    font-weight: 500;
-    color: rgb(0, 0, 0);
-}
 
-/* Contenedor de productos */
+
+
 #producto-lista {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 🔥 Forzar 4 columnas */
+    grid-template-columns: repeat(4, 1fr); 
     gap: 1.5rem;
     padding: 2rem;
 }
 
 
-/* Modal del carrito */
 .modal {
-    display: none; /* Oculto inicialmente */
+    display: none; 
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+    background-color: rgba(0, 0, 0, 0.5);
     z-index: 1000;
     justify-content: center;
     align-items: center;
 }
 
-/* Contenido del modal */
+
 .modal-content {
     background-color: white;
     border-radius: 8px;
@@ -647,7 +610,7 @@ form input {
     position: relative;
 }
 
-/* Botón de cerrar */
+
 .close {
     position: absolute;
     top: 10px;
@@ -663,7 +626,6 @@ form input {
     color: #e74c3c;
 }
 
-/* Botones dentro del modal */
 .modal-content button {
     margin-top: 1rem;
     width: 100%;
@@ -693,7 +655,6 @@ form input {
     background-color: #555;
 }
 
-/* Modal de Login y Registro */
 .modal-content form {
     display: flex;
     flex-direction: column;
@@ -722,7 +683,7 @@ form input {
     background-color: #555;
 }
 
-/* Modal Header */
+
 .modal-header {
     display: flex;
     align-items: center;
@@ -730,19 +691,18 @@ form input {
     gap: 0.5rem;
 }
 
-/* Logo */
+
 .modal-logo {
     height: 50px;
     transition: transform 0.3s ease;
 }
 
-/* Texto Mi Tiendita */
 .modal-logo-text {
     height: 40px;
     transition: transform 0.3s ease;
 }
 
-/* Efecto de zoom al pasar el mouse */
+
 .modal-logo:hover,
 .modal-logo-text:hover {
     transform: scale(1.1);
